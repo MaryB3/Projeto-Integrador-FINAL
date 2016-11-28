@@ -6,9 +6,7 @@
 package com.senai.projetointegrador.persistencia;
 
 import Classes.Chale;
-import com.senai.projetointegrador.fabricaconexao.FabricaDeConexao;
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,7 +42,7 @@ public class ChalePersistencia {
     }
     
     //@Override
-    public void excluir(Long numero) throws SQLException {
+    public void excluir(int numero) throws SQLException {
         String comando = "delete from  CHALES where  NUM_CHALE=?";
         PreparedStatement ps = conectar.prepareStatement(comando);
         ps.setLong(1, numero);
@@ -65,6 +63,23 @@ public class ChalePersistencia {
         return null;
     }
     
+    public ArrayList listarStatus(String status) throws SQLException {
+       ArrayList dados = new ArrayList();
+        String comando = "select * from CHALES where STATUS = ?";
+        PreparedStatement ps = conectar.prepareStatement(comando);
+        ps.setString(1, status);
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            Chale chale = new Chale();
+            chale.setNumero((int)rs.getLong("NUM_CHALE"));
+            chale.setDescricao(rs.getString("DESCRICAO"));
+            chale.setStatus(rs.getString("STATUS"));
+            dados.add(chale);
+        }
+        return dados;
+
+    }
+    
     //@Override
     public ArrayList listar() throws SQLException {
        ArrayList dados = new ArrayList();
@@ -82,7 +97,7 @@ public class ChalePersistencia {
 
     }
     
-    public void reservar(Chale objeto) throws SQLException {
+    /*public void reservar(Chale objeto) throws SQLException {
         String comando = "insert into CHALES(DATADARESERVA, STATUS, NUM_CHALE, MATRICULA_SOCIO)values(?,?,?,?)";
         PreparedStatement ps = conectar.prepareStatement(comando);
         ps.setString(1, objeto.getDataReserva());
@@ -90,6 +105,6 @@ public class ChalePersistencia {
         ps.setLong(3, objeto.getNumero());
         
         ps.executeUpdate();
-    }
+    }*/
     
 }

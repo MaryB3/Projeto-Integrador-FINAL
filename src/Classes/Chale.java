@@ -9,15 +9,25 @@ package Classes;
  *
  * @author Wellington
  */
-public class Chale {
+public class Chale extends Socio{
     //ATRIBUTOS:
     
     private int numero;
     private String descricao= ""; //caracteristicas do chale (qtd de quartos, suite, ar-condicionado, TV etc..)
     private String status= ""; //Status do chale combobox: (LIVRE / RESERVADO / OCUPADO)
-    private String dataReserva = "";
+    private int matriculaSocio;
+    private boolean isEditar;
    
     //METODOS:
+    public Chale(String descricao, String status){
+        this.descricao = descricao;
+        this.status = status;
+    }
+    
+    public Chale(){
+        this.descricao = "";
+        this.status = "";
+    }
 
     public int getNumero() {
         return numero;
@@ -52,13 +62,23 @@ public class Chale {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-       public String getDataReserva() {
-        return dataReserva;
+
+    public int getMatriculaSocio() {
+        return matriculaSocio;
     }
 
-    public void setDataReserva(String dataReserva) {
-        this.dataReserva = dataReserva;
+    public void setMatriculaSocio(int matriculaSocio) {
+        this.matriculaSocio = matriculaSocio;
     }
+
+    public boolean isIsEditar() {
+        return isEditar;
+    }
+
+    public void setIsEditar(boolean isEditar) {
+        this.isEditar = isEditar;
+    }
+    
+       
  
 }

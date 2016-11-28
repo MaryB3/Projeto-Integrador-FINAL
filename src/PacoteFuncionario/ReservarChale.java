@@ -5,6 +5,13 @@
  */
 package PacoteFuncionario;
 
+import Classes.Chale;
+import com.senai.projetointegrador.persistencia.ChalePersistencia;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+
+
 /**
  *
  * @author MaryBeds
@@ -14,8 +21,14 @@ public class ReservarChale extends javax.swing.JInternalFrame {
     /**
      * Creates new form ReservarChale
      */
+    
+    ReservarChale reservaFrame = new ReservarChale();
+    CadastroChalesView cadastroChaleFrame = new CadastroChalesView();
+    
     public ReservarChale() {
         initComponents();
+        
+        
     }
 
     /**
@@ -33,13 +46,15 @@ public class ReservarChale extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         statusLbl = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        statusLbl1 = new javax.swing.JLabel();
+        numeroChale = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descricao = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        socioComboBox = new javax.swing.JComboBox<>();
+        ReservarPressed = new javax.swing.JButton();
+        EditarPressed = new javax.swing.JButton();
+        ExcluirPressed = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -49,6 +64,11 @@ public class ReservarChale extends javax.swing.JInternalFrame {
         VoltarPressed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/voltar.png"))); // NOI18N
         VoltarPressed.setBorderPainted(false);
         VoltarPressed.setContentAreaFilled(false);
+        VoltarPressed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoltarPressedActionPerformed(evt);
+            }
+        });
 
         voltarLbl.setFont(new java.awt.Font("Avenir Next", 1, 14)); // NOI18N
         voltarLbl.setForeground(new java.awt.Color(158, 189, 83));
@@ -66,30 +86,54 @@ public class ReservarChale extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("SÓCIO:");
 
-        statusLbl1.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        statusLbl1.setForeground(new java.awt.Color(153, 153, 153));
-        statusLbl1.setText("1234312");
+        numeroChale.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        numeroChale.setForeground(new java.awt.Color(153, 153, 153));
+        numeroChale.setText("1234312");
 
         jLabel4.setFont(new java.awt.Font("Avenir Next", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("DESCRIÇÃO:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descricao.setColumns(20);
+        descricao.setRows(5);
+        descricao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setViewportView(descricao);
 
         jLabel5.setFont(new java.awt.Font("Avenir Next", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("NÚMERO:");
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setFont(new java.awt.Font("Avenir Next", 1, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(153, 153, 153));
-        jComboBox2.setMaximumRowCount(100);
+        socioComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        socioComboBox.setFont(new java.awt.Font("Avenir Next", 1, 14)); // NOI18N
+        socioComboBox.setForeground(new java.awt.Color(153, 153, 153));
+        socioComboBox.setMaximumRowCount(100);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Reservar.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
+        ReservarPressed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Reservar.png"))); // NOI18N
+        ReservarPressed.setBorderPainted(false);
+        ReservarPressed.setContentAreaFilled(false);
+        ReservarPressed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReservarPressedActionPerformed(evt);
+            }
+        });
+
+        EditarPressed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Editar.png"))); // NOI18N
+        EditarPressed.setBorderPainted(false);
+        EditarPressed.setContentAreaFilled(false);
+        EditarPressed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarPressedActionPerformed(evt);
+            }
+        });
+
+        ExcluirPressed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Excluir.png"))); // NOI18N
+        ExcluirPressed.setBorderPainted(false);
+        ExcluirPressed.setContentAreaFilled(false);
+        ExcluirPressed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExcluirPressedActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,26 +150,34 @@ public class ReservarChale extends javax.swing.JInternalFrame {
                 .addComponent(statusLbl)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 159, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                            .addComponent(statusLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 101, Short.MAX_VALUE))
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                    .addComponent(numeroChale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(121, 121, 121))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(ReservarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(socioComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(121, 121, 121))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(EditarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(ExcluirPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +193,7 @@ public class ReservarChale extends javax.swing.JInternalFrame {
                             .addComponent(statusLbl))))
                 .addGap(196, 196, 196)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusLbl1)
+                    .addComponent(numeroChale)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,10 +202,14 @@ public class ReservarChale extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(201, 201, 201)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                    .addComponent(socioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(204, 204, 204)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ReservarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(EditarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ExcluirPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,20 +226,56 @@ public class ReservarChale extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void VoltarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarPressedActionPerformed
+        // TODO add your handling code here:
+        reservaFrame.setVisible(false);
+    }//GEN-LAST:event_VoltarPressedActionPerformed
+
+    private void ReservarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarPressedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReservarPressedActionPerformed
+
+    private void EditarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarPressedActionPerformed
+        // TODO add your handling code here:
+        
+        cadastroChaleFrame.setVisible(true);
+        reservaFrame.setVisible(false);
+        cadastroChaleFrame.setUI(null);
+        Chale chale = new Chale();
+        chale.setIsEditar(true);
+        
+    }//GEN-LAST:event_EditarPressedActionPerformed
+
+    private void ExcluirPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirPressedActionPerformed
+        // TODO add your handling code here:
+        try {
+            int numero = Integer.parseInt(numeroChale.getText());
+            // enviar para o banco de dados
+            ChalePersistencia objetoPesistencia = new ChalePersistencia();
+            objetoPesistencia.excluir(numero);
+            reservaFrame.setVisible(false);
+            
+        } catch (NumberFormatException | SQLException erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
+    }//GEN-LAST:event_ExcluirPressedActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EditarPressed;
+    private javax.swing.JButton ExcluirPressed;
+    private javax.swing.JButton ReservarPressed;
     private javax.swing.JButton VoltarPressed;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JTextArea descricao;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel numeroChale;
+    private javax.swing.JComboBox<String> socioComboBox;
     private javax.swing.JLabel statusLbl;
-    private javax.swing.JLabel statusLbl1;
     private javax.swing.JLabel voltarLbl;
     // End of variables declaration//GEN-END:variables
 }

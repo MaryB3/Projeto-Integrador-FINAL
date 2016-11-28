@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import Classes.RegistroEntradaSaida;
+import com.senai.projetointegrador.persistencia.ReservaPersistencia;
 
 /**
  *
@@ -25,9 +27,7 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
      */
     public EntradaSaidaView() {
         initComponents();
-           
-        createAndStartDownwardTimer(jLabel1);
-        
+                 
     }
     
     private void createAndStartDownwardTimer(final JLabel frame) {
@@ -80,6 +80,7 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        RegistrarPressed = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -98,6 +99,17 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(158, 189, 83));
         jLabel3.setText("Sócio");
 
+        RegistrarPressed.setFont(new java.awt.Font("Avenir Next", 1, 13)); // NOI18N
+        RegistrarPressed.setForeground(new java.awt.Color(158, 189, 83));
+        RegistrarPressed.setText("REGISTRAR ENTRADA/SAÍDA");
+        RegistrarPressed.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(158, 189, 83), 2));
+        RegistrarPressed.setContentAreaFilled(false);
+        RegistrarPressed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarPressedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,11 +123,16 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel3)))
-                .addGap(152, 152, 152))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel3)))
+                        .addGap(152, 152, 152))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(RegistrarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(211, 211, 211))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +141,9 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(RegistrarPressed)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -148,8 +167,18 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void RegistrarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPressedActionPerformed
+        // TODO add your handling code here:
+        
+        RegistroEntradaSaida registrar = new RegistroEntradaSaida();
+        Thread threadRegistro = new Thread(registrar);
+        threadRegistro.start();
+        createAndStartDownwardTimer(jLabel1);
+    }//GEN-LAST:event_RegistrarPressedActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RegistrarPressed;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

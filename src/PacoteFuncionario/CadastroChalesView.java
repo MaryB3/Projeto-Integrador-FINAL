@@ -121,7 +121,7 @@ public class CadastroChalesView extends javax.swing.JInternalFrame {
             Chale objeto = new Chale(descricao, status);
             
             // enviar para o banco de dados
-            ChalePersistencia objetoPesistencia = new ChalePersistencia();
+            ChalePersistencia objetoPesistencia = new ChalePersistencia() {};
             objetoPesistencia.incluir(objeto);
             descricaoTextArea.setText("");
             JOptionPane.showMessageDialog(null, "CHALÉ CADASTRADO COM SUCESSO");

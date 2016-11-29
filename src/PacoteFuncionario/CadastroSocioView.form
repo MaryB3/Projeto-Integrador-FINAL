@@ -80,7 +80,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="NomeLbl" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="nomeTxtField" min="-2" pref="397" max="-2" attributes="0"/>
+                                  <Component id="tfNome" min="-2" pref="397" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -93,7 +93,7 @@
                                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="telTxtField1" min="-2" pref="150" max="-2" attributes="0"/>
+                                                  <Component id="datanscTF" min="-2" pref="150" max="-2" attributes="0"/>
                                                   <EmptySpace pref="52" max="32767" attributes="0"/>
                                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -124,7 +124,7 @@
                                           <Component id="cartaoCheckBox" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="ruaTxtField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="0" pref="397" max="32767" attributes="0"/>
+                                      <Component id="jcbQuemIndicou" alignment="0" pref="397" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -144,7 +144,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="NomeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nomeTxtField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="tfNome" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -156,7 +156,7 @@
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="telTxtField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="telTxtField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="datanscTF" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -176,7 +176,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbQuemIndicou" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
@@ -218,7 +218,7 @@
             <Property name="text" type="java.lang.String" value="NOME:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nomeTxtField">
+        <Component class="javax.swing.JTextField" name="tfNome">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Avenir Next" size="13" style="0"/>
@@ -537,7 +537,7 @@
             <Property name="text" type="java.lang.String" value="DATA DE NASCIMENTO:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="telTxtField1">
+        <Component class="javax.swing.JTextField" name="datanscTF">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Avenir Next" size="14" style="0"/>
@@ -565,11 +565,8 @@
             <Property name="text" type="java.lang.String" value="QUEM INDICOU:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jcbQuemIndicou">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Avenir Next" size="14" style="1"/>
             </Property>
@@ -655,9 +652,6 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox2">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Avenir Next" size="14" style="1"/>
             </Property>

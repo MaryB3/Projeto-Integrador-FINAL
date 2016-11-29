@@ -14,7 +14,6 @@ public class UtilVariados implements Serializable {
 			Integer.parseInt(str);
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return false;
 	}

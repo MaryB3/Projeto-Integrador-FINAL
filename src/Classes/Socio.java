@@ -16,7 +16,8 @@ public class Socio extends Pessoa {
     //ATRIBUTOS
     private Date dataDeAssociacao;  // criar mascara --/--/----
     private String formaPagamento;  // criar combobox com: DEBITO AUTOMATICO , CARTAO/INTERNET
-    
+    private String quemIndicou;
+    private String status;
 
    //METODOS:
     public Date getDataDeAssociacao() throws Exception {
@@ -36,5 +37,24 @@ public class Socio extends Pessoa {
          if(formaPagamento.equals(null) || formaPagamento.equals("")) throw new Exception("Informar a Forma de Pagamento!");
         this.formaPagamento = formaPagamento;
     }
+
+    public String getQuemIndicou() {
+        return quemIndicou;
+    }
+
+    public void setQuemIndicou(String quemIndicou) {
+        this.quemIndicou = quemIndicou;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    
+    
     
 }

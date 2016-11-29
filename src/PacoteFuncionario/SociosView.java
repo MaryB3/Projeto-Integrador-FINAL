@@ -5,6 +5,12 @@
  */
 package PacoteFuncionario;
 
+import Classes.Socio;
+import com.senai.projetointegrador.persistencia.SocioPersistencia;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MaryBeds
@@ -16,6 +22,25 @@ public class SociosView extends javax.swing.JInternalFrame {
      */
     public SociosView() {
         initComponents();
+        
+        try {
+
+            DefaultTableModel model =  (DefaultTableModel) TabelaSocios.getModel();
+            model.setNumRows(0);
+            SocioPersistencia objetoPesistencia = new SocioPersistencia();
+            ArrayList lista = objetoPesistencia.listar();
+            for(int pos=0;pos<lista.size();pos++){
+                String[] saida= new String[3];//novo
+                Socio socio = (Socio)(lista.get(pos));//novo
+                saida[0] = socio.getNome();//novo
+                saida[1] = socio.getTelefone();//novo
+                saida[2] = socio.getStatus();
+                //Incluir nova linha na Tabela
+                model.addRow(saida);//novo
+            }
+        }catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }
 
     /**

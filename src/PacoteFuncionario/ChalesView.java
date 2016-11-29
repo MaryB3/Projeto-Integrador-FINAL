@@ -77,7 +77,7 @@ public class ChalesView extends javax.swing.JInternalFrame {
         jScrollPane1.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
 
         TabelaChales.setFont(new java.awt.Font("Avenir Next", 0, 12)); // NOI18N
-        TabelaChales.setForeground(new java.awt.Color(153, 153, 153));
+        TabelaChales.setForeground(new java.awt.Color(102, 102, 102));
         TabelaChales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -167,6 +167,8 @@ public class ChalesView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_FiltrarPressedActionPerformed
 
+  
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton FiltrarPressed;

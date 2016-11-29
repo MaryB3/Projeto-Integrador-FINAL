@@ -168,11 +168,7 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistrarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPressedActionPerformed
-        // TODO add your handling code here:
-        
-        RegistroEntradaSaida registrar = new RegistroEntradaSaida();
-        Thread threadRegistro = new Thread(registrar);
-        threadRegistro.start();
+        // TODO add your handling code here
         createAndStartDownwardTimer(jLabel1);
     }//GEN-LAST:event_RegistrarPressedActionPerformed
 

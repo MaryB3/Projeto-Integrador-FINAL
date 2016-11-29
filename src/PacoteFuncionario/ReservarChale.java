@@ -8,8 +8,10 @@ package PacoteFuncionario;
 import Classes.Chale;
 import com.senai.projetointegrador.persistencia.ChalePersistencia;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import com.senai.projetointegrador.persistencia.ReservaPersistencia;
 
 
 /**
@@ -235,14 +237,14 @@ public class ReservarChale extends javax.swing.JInternalFrame {
             String status = "LIVRE";
             String dataReserva = dataTxtField.getText();
             int numChale = Integer.parseInt(numeroChale.getText());
-            Chale objeto = new Chale(dataReserva, socioSelecionado, numChale);
+            Chale objetoChale = new Chale(dataReserva, socioSelecionado, numChale);
             
             // enviar para o banco de dados
-            ChalePersistencia objetoPesistencia = new ChalePersistencia();
-            objetoPesistencia.incluir(objeto);
+            //ReservaPersistencia objetoPesistencia = new ReservaPersistencia();
+            //objetoPesistencia.incluirReserva(objetoChale);
          
             
-        } catch (NumberFormatException | SQLException erro) {
+        } catch (NumberFormatException erro) {
             JOptionPane.showMessageDialog(rootPane, erro.getMessage());
         }
     }//GEN-LAST:event_ReservarPressedActionPerformed
@@ -259,6 +261,8 @@ public class ReservarChale extends javax.swing.JInternalFrame {
 
         } catch (NumberFormatException | SQLException erro) {
             JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(ReservarChale.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ExcluirPressedActionPerformed
 

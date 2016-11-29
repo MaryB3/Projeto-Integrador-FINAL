@@ -5,7 +5,10 @@
  */
 package com.senai.projetointegrador.persistencia;
 
+import Classes.Chale;
 import Classes.Reserva;
+import Interface.CRUD_RESERVA;
+import com.senai.projetointegrador.fabricaconexao.FabricaDeConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -14,11 +17,20 @@ import java.sql.SQLException;
  *
  * @author MaryBeds
  */
-public class ReservaPersistencia {
+public class ReservaPersistencia implements CRUD_RESERVA{
     
     private Connection conectar = null;
+    public ReservaPersistencia() throws Exception{
+        conectar = FabricaDeConexao.getInstancia().getConnxao();
+    }
     
-    public void incluir(Reserva objeto) throws SQLException {
+    /**
+     *
+     * @param objeto
+     * @throws SQLException
+     */
+    @Override
+    public void incluirReserva(Reserva objeto) throws SQLException {
         String comando = "insert into RESERVAS(DATADARESERVA, NUM_CHALE,MATRICULA_SOCIO)values(?,?, ?)";
         PreparedStatement ps = conectar.prepareStatement(comando);
         ps.setString(1, objeto.getDataReserva());

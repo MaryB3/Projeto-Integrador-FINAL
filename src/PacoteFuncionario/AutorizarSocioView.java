@@ -5,6 +5,13 @@
  */
 package PacoteFuncionario;
 
+
+import Classes.Socio;
+import com.senai.projetointegrador.persistencia.SocioPersistencia;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MaryBeds
@@ -16,6 +23,26 @@ public class AutorizarSocioView extends javax.swing.JInternalFrame {
      */
     public AutorizarSocioView() {
         initComponents();
+        
+        try {
+
+            DefaultTableModel model =  (DefaultTableModel) TabelaSocios.getModel();
+            model.setNumRows(0);
+            SocioPersistencia objetoPesistencia = new SocioPersistencia();
+            ArrayList lista = objetoPesistencia.listarSocioAutorizar();
+            for(int pos=0;pos<lista.size();pos++){
+                String[] saida= new String[3];//novo
+                Socio socio = (Socio)(lista.get(pos));//novo
+                saida[0] = socio.getNome();//novo
+                saida[1] = socio.getTelefone();//novo
+                saida[2] = socio.getQuemIndicou();
+                //Incluir nova linha na Tabela
+                model.addRow(saida);//novo
+            }
+        }catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
+        
     }
 
     /**
@@ -65,7 +92,7 @@ public class AutorizarSocioView extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "Nome", "Telefone", "Indicado Por"
+                "Nome", "Telefone", "Quem indicou"
             }
         ));
         jScrollPane1.setViewportView(TabelaSocios);

@@ -5,6 +5,7 @@
  */
 package Interface;
 import Classes.Chale;
+import Classes.Reserva;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -14,11 +15,14 @@ import java.util.ArrayList;
  */
 public interface CRUD {
     
+    //CHALÉ
     public void incluir(Chale objeto) throws SQLException;
     public void editar(Chale objeto) throws SQLException;
     public void excluir(int numero) throws SQLException;
     public Chale consultarPorStatus(String status) throws SQLException;
     public ArrayList listarStatus(String status) throws SQLException;
     public ArrayList listar() throws SQLException;
+    
+    
     
 }

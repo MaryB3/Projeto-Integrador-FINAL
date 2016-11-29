@@ -139,7 +139,7 @@
                   <Table columnCount="3" rowCount="4">
                     <Column editable="true" title="Nome" type="java.lang.Object"/>
                     <Column editable="true" title="Telefone" type="java.lang.Object"/>
-                    <Column editable="true" title="Indicado Por" type="java.lang.Object"/>
+                    <Column editable="true" title="Quem indicou" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>

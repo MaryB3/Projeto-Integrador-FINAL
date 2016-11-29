@@ -22,13 +22,10 @@ public class ReservarChale extends javax.swing.JInternalFrame {
      * Creates new form ReservarChale
      */
     
-    ReservarChale reservaFrame = new ReservarChale();
-    CadastroChalesView cadastroChaleFrame = new CadastroChalesView();
-    
+ 
     public ReservarChale() {
         initComponents();
-        
-        
+ 
     }
 
     /**
@@ -53,8 +50,9 @@ public class ReservarChale extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         socioComboBox = new javax.swing.JComboBox<>();
         ReservarPressed = new javax.swing.JButton();
-        EditarPressed = new javax.swing.JButton();
         ExcluirPressed = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        dataTxtField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -117,15 +115,6 @@ public class ReservarChale extends javax.swing.JInternalFrame {
             }
         });
 
-        EditarPressed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Editar.png"))); // NOI18N
-        EditarPressed.setBorderPainted(false);
-        EditarPressed.setContentAreaFilled(false);
-        EditarPressed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarPressedActionPerformed(evt);
-            }
-        });
-
         ExcluirPressed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Excluir.png"))); // NOI18N
         ExcluirPressed.setBorderPainted(false);
         ExcluirPressed.setContentAreaFilled(false);
@@ -135,49 +124,53 @@ public class ReservarChale extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Avenir Next", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel6.setText("DATA DA RESERVA:");
+
+        dataTxtField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        dataTxtField.setForeground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(VoltarPressed)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(voltarLbl)
-                .addGap(163, 163, 163)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statusLbl)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 159, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                    .addComponent(numeroChale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(121, 121, 121))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(ReservarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(VoltarPressed)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(socioComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(121, 121, 121))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(EditarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(ExcluirPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(voltarLbl)
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(statusLbl)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 106, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(socioComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1)
+                                    .addComponent(numeroChale, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(dataTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(120, 120, 120))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ReservarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(ExcluirPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +184,7 @@ public class ReservarChale extends javax.swing.JInternalFrame {
                             .addComponent(voltarLbl)
                             .addComponent(jLabel2)
                             .addComponent(statusLbl))))
-                .addGap(196, 196, 196)
+                .addGap(149, 149, 149)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numeroChale)
                     .addComponent(jLabel5))
@@ -203,13 +196,15 @@ public class ReservarChale extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(socioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(204, 204, 204)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(dataTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(159, 159, 159)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ReservarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(EditarPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ExcluirPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
+                    .addComponent(ExcluirPressed, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,23 +223,29 @@ public class ReservarChale extends javax.swing.JInternalFrame {
 
     private void VoltarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarPressedActionPerformed
         // TODO add your handling code here:
-        reservaFrame.setVisible(false);
+        ChalesView chalesFrame = new ChalesView();
+        chalesFrame.setVisible(false);
     }//GEN-LAST:event_VoltarPressedActionPerformed
 
     private void ReservarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarPressedActionPerformed
         // TODO add your handling code here:
+        try {
+            String socio = (String)socioComboBox.getSelectedItem();
+            int socioSelecionado = socioComboBox.getSelectedIndex();
+            String status = "LIVRE";
+            String dataReserva = dataTxtField.getText();
+            int numChale = Integer.parseInt(numeroChale.getText());
+            Chale objeto = new Chale(dataReserva, socioSelecionado, numChale);
+            
+            // enviar para o banco de dados
+            ChalePersistencia objetoPesistencia = new ChalePersistencia();
+            objetoPesistencia.incluir(objeto);
+         
+            
+        } catch (NumberFormatException | SQLException erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }//GEN-LAST:event_ReservarPressedActionPerformed
-
-    private void EditarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarPressedActionPerformed
-        // TODO add your handling code here:
-        
-        cadastroChaleFrame.setVisible(true);
-        reservaFrame.setVisible(false);
-        cadastroChaleFrame.setUI(null);
-        Chale chale = new Chale();
-        chale.setIsEditar(true);
-        
-    }//GEN-LAST:event_EditarPressedActionPerformed
 
     private void ExcluirPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirPressedActionPerformed
         // TODO add your handling code here:
@@ -253,8 +254,9 @@ public class ReservarChale extends javax.swing.JInternalFrame {
             // enviar para o banco de dados
             ChalePersistencia objetoPesistencia = new ChalePersistencia();
             objetoPesistencia.excluir(numero);
-            reservaFrame.setVisible(false);
-            
+            ChalesView chalesFrame = new ChalesView();
+            chalesFrame.setVisible(false);
+
         } catch (NumberFormatException | SQLException erro) {
             JOptionPane.showMessageDialog(rootPane, erro.getMessage());
         }
@@ -262,15 +264,16 @@ public class ReservarChale extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EditarPressed;
     private javax.swing.JButton ExcluirPressed;
     private javax.swing.JButton ReservarPressed;
     private javax.swing.JButton VoltarPressed;
+    private javax.swing.JTextField dataTxtField;
     private javax.swing.JTextArea descricao;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel numeroChale;

@@ -19,18 +19,12 @@ public class CadastroChalesView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastroChalesView
-     */
-    boolean verificarEditar;
-    
+     */    
     public CadastroChalesView() {
         initComponents();
-        Chale chaleTest = new Chale();
-        if (chaleTest.isIsEditar()) {
-            System.out.print("TRUE");
-        } else {
-            System.out.print("FALSE");
-        }
+       
     }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,6 +124,7 @@ public class CadastroChalesView extends javax.swing.JInternalFrame {
             ChalePersistencia objetoPesistencia = new ChalePersistencia();
             objetoPesistencia.incluir(objeto);
             descricaoTextArea.setText("");
+            JOptionPane.showMessageDialog(null, "CHALÉ CADASTRADO COM SUCESSO");
             
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(rootPane, erro.getMessage());

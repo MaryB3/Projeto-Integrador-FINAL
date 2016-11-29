@@ -15,7 +15,7 @@ public class Reserva  extends Chale{
     private String dataReserva = "";
     
 
-    public Reserva(String dataReserva, int numReserva, int numSocio){
+    public Reserva(String dataReserva, int numSocio, int numChale){
         
         
         //this.descricao = descricao;

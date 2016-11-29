@@ -9,11 +9,11 @@ public class FabricaDeConexao implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static String usuario = "GOLFCLUB";
-	private static String senha = "aluno";
-	private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	// private static String url = "jdbc:mysql://localhost:3306/blogsarah";
-	private static String driver = "oracle.jdbc.OracleDriver";
+	private static String usuario = "root";
+	private static String senha = "root";
+	//private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static String url = "jdbc:mysql://localhost:8889/GOLFCLUB";
+	private static String driver = "com.mysql.jdbc.Driver";
 
 	private static FabricaDeConexao instancia;
 

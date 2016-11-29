@@ -424,13 +424,19 @@ public class FuncionarioInterface extends javax.swing.JFrame {
 
     private void RegistrarInOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarInOutActionPerformed
         // TODO add your handling code here:
+        
         if (isEntradaSaida) {
             isEntradaSaida = false;
             RegistrarInOut.setSelected(false);
             entradaSaidaFrame.setVisible(false);
 
         } else {
-
+            
+            entradaSaidaFrame = new EntradaSaidaView();
+            DesktopMenu.add(entradaSaidaFrame);
+            entradaSaidaFrame.setVisible(false);
+            entradaSaidaFrame.setUI(null);
+        
             isEntradaSaida = true;
             isAutorizarSocio = false;
             isCadastrarChales = false;
@@ -446,7 +452,6 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             SociosPressed.setSelected(false);
             ChalesPressed.setSelected(false);
 
-            entradaSaidaFrame.setVisible(true);
             autorizarFrame.setVisible(false);
             cadastroChaleFrame.setVisible(false);
             cadastroSocioFrame.setVisible(false);

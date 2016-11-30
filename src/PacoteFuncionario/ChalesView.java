@@ -89,6 +89,12 @@ public class ChalesView extends javax.swing.JInternalFrame {
                 "Número", "Status"
             }
         ));
+        TabelaChales.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        TabelaChales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaChalesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TabelaChales);
 
         FiltrarPressed.setBackground(new java.awt.Color(255, 255, 255));
@@ -167,8 +173,20 @@ public class ChalesView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_FiltrarPressedActionPerformed
 
+    private void TabelaChalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaChalesMouseClicked
+        // TODO add your handling code here:
+        int codSelecionado = this.TabelaChales.getSelectedRow();
+        String codpro = this.TabelaChales.getValueAt(codSelecionado, 0).toString();
+
+        RegistrarReservaView cod = new RegistrarReservaView(Integer.parseInt(codpro));
+        System.out.println("COD CHALE ENVIADO: "+cod.getNumeroRecebidoChale());
+
+        cod.setLocation(385, 45);
+        cod.setVisible(true);
+        
+    }//GEN-LAST:event_TabelaChalesMouseClicked
+
   
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton FiltrarPressed;

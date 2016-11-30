@@ -7,9 +7,7 @@ package PacoteFuncionario;
 
 import Classes.Chale;
 import com.senai.projetointegrador.persistencia.ChalePersistencia;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *

@@ -22,7 +22,7 @@ public interface CRUD {
     public Chale consultarPorStatus(String status) throws SQLException;
     public ArrayList listarStatus(String status) throws SQLException;
     public ArrayList listar() throws SQLException;
-    
+    public ArrayList exibirChale(int numChale) throws SQLException;
     
     
 }

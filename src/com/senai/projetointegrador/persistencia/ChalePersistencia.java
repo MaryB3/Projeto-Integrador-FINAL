@@ -36,10 +36,11 @@ public class ChalePersistencia implements CRUD{
     
     @Override
     public void editar(Chale objeto) throws SQLException {
-        String comando = "update into CHALES(DESCRICAO,STATUS_CHALE)values(?,?)";
+        String comando = "UPDATE CHALES SET DESCRICAO = ?, STATUS_CHALE = ? WHERE NUM_CHALE = ?";
         PreparedStatement ps = conectar.prepareStatement(comando);
         ps.setString(1, objeto.getDescricao());
         ps.setString(2, objeto.getStatus());
+        ps.setInt(3, objeto.getNumero());
         ps.executeUpdate();
     }
     
@@ -83,7 +84,7 @@ public class ChalePersistencia implements CRUD{
 
     }
     
-    //@Override
+    @Override
     public ArrayList listar() throws SQLException {
        ArrayList dados = new ArrayList();
         String comando = "select * from CHALES";
@@ -100,14 +101,25 @@ public class ChalePersistencia implements CRUD{
 
     }
     
-    /*public void reservar(Chale objeto) throws SQLException {
-        String comando = "insert into CHALES(DATADARESERVA, STATUS, NUM_CHALE, MATRICULA_SOCIO)values(?,?,?,?)";
+    @Override
+    public ArrayList exibirChale(int numChale) throws SQLException {
+        ArrayList dados = new ArrayList();
+        String comando = "select DESCRICAO, STATUS_CHALE  from CHALES where NUM_CHALE = ?";
         PreparedStatement ps = conectar.prepareStatement(comando);
-        ps.setString(1, objeto.getDataReserva());
-        ps.setString(2, objeto.getStatus());
-        ps.setLong(3, objeto.getNumero());
+        ps.setInt(1, numChale);
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            Chale chale = new Chale();
+            chale.setDescricao(rs.getString("DESCRICAO"));
+            chale.setStatus(rs.getString("STATUS_CHALE"));
+            dados.add(chale);
+            System.out.println("STATUS FROM DB: "+chale.getStatus());
+            System.out.println("DESC FROM DB: "+chale.getDescricao());
+        }
         
-        ps.executeUpdate();
-    }*/
+        return dados;
+
+    }
+    
     
 }

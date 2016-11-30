@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import Classes.Socio;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -14,7 +15,10 @@ import java.util.ArrayList;
  */
 public interface CRUD_SOCIO {
     
+    public void editar(Socio objeto) throws SQLException; 
     public ArrayList listarSocioAutorizar() throws SQLException;
     public ArrayList listar() throws SQLException;
+    public ArrayList listarSocioPorNomeAutorizar(String nome) throws SQLException;
+    public ArrayList listarSocioPorNome(String nome) throws SQLException;
     
 }

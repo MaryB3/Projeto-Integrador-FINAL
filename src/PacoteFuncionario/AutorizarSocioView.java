@@ -95,6 +95,11 @@ public class AutorizarSocioView extends javax.swing.JInternalFrame {
                 "Nome", "Telefone", "Quem indicou"
             }
         ));
+        TabelaSocios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaSociosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TabelaSocios);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -142,7 +147,43 @@ public class AutorizarSocioView extends javax.swing.JInternalFrame {
 
     private void BuscarPressedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPressedActionPerformed
         // TODO add your handling code here:
+        try {
+
+            DefaultTableModel model =  (DefaultTableModel) TabelaSocios.getModel();
+            model.setNumRows(0);
+            SocioPersistencia objetoPesistencia = new SocioPersistencia();
+            ArrayList lista;
+            if (nomeTextField.getText().length() == 0) {
+                lista = objetoPesistencia.listarSocioAutorizar();
+            } else {
+                lista = objetoPesistencia.listarSocioPorNomeAutorizar(nomeTextField.getText());
+            }
+            
+            for(int pos=0;pos<lista.size();pos++){
+                String[] saida= new String[3];//novo
+                Socio socio = (Socio)(lista.get(pos));//novo
+                saida[0] = socio.getNome();//novo
+                saida[1] = socio.getTelefone();//novo
+                saida[2] = socio.getQuemIndicou();
+                //Incluir nova linha na Tabela
+                model.addRow(saida);//novo
+            }
+        }catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }//GEN-LAST:event_BuscarPressedActionPerformed
+
+    private void TabelaSociosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaSociosMouseClicked
+        // TODO add your handling code here:
+        int codSelecionado = this.TabelaSocios.getSelectedRow();
+        String nome = this.TabelaSocios.getValueAt(codSelecionado, 0).toString();
+
+        DetalheSocio cod = new DetalheSocio(nome);
+        System.out.println("COD CHALE ENVIADO: "+cod.getNomeRecebido());
+
+        cod.setLocation(385, 45);
+        cod.setVisible(true);
+    }//GEN-LAST:event_TabelaSociosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

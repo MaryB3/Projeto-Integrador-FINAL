@@ -30,6 +30,7 @@ public class FuncionarioInterface extends javax.swing.JFrame {
     AutorizarSocioView autorizarFrame = new AutorizarSocioView();
     DetalheSocioView detalheSocioFrame = new DetalheSocioView();
     EntradaSaidaView entradaSaidaFrame = new EntradaSaidaView();
+    ReservarChale reservarFrame = new ReservarChale();
 
     public FuncionarioInterface() {
         initComponents();
@@ -37,30 +38,29 @@ public class FuncionarioInterface extends javax.swing.JFrame {
         DesktopMenu.add(socioFrame);
         socioFrame.setVisible(true);
         socioFrame.setUI(null);
-
-        DesktopMenu.add(cadastroSocioFrame);
-        cadastroSocioFrame.setVisible(false);
-        cadastroSocioFrame.setUI(null);
-
-        DesktopMenu.add(chalesFrame);
-        chalesFrame.setVisible(false);
-        chalesFrame.setUI(null);
-
-        DesktopMenu.add(cadastroChaleFrame);
-        cadastroChaleFrame.setVisible(false);
-        cadastroChaleFrame.setUI(null);
         
-        DesktopMenu.add(autorizarFrame);
-        autorizarFrame.setVisible(false);
-        autorizarFrame.setUI(null);
+    }
+    
+    public FuncionarioInterface(int telaAnterior) {
+        initComponents();
         
-        DesktopMenu.add(entradaSaidaFrame);
-        entradaSaidaFrame.setVisible(false);
-        entradaSaidaFrame.setUI(null);
+        SociosPressed.setSelected(false);
+        isSocios = false;
         
-//        DesktopMenu.add(detalheSocioFrame);
-//        detalheSocioFrame.setVisible(false);
-//        detalheSocioFrame.setUI(null);
+        if (telaAnterior == 0) {
+            DesktopMenu.add(chalesFrame);
+            chalesFrame.setVisible(true);
+            chalesFrame.setUI(null);
+
+            ChalesPressed.setSelected(true);
+        } else {
+            DesktopMenu.add(autorizarFrame);
+            autorizarFrame.setVisible(true);
+            autorizarFrame.setUI(null);
+            
+            AutorizarSocioPressed.setSelected(true);
+        }
+            
     }
 
     /**
@@ -255,6 +255,11 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             socioFrame.setVisible(false);
 
         } else {
+            
+            socioFrame = new SociosView();
+            DesktopMenu.add(socioFrame);
+            socioFrame.setVisible(true);
+            socioFrame.setUI(null);
 
             isSocios = true;
             isCadastrarSocios = false;
@@ -271,7 +276,6 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             AutorizarSocioPressed.setSelected(false);
             RegistrarInOut.setSelected(false);
 
-            socioFrame.setVisible(true);
             cadastroSocioFrame.setVisible(false);
             chalesFrame.setVisible(false);
             cadastroChaleFrame.setVisible(false);
@@ -289,6 +293,12 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             cadastroSocioFrame.setVisible(false);
 
         } else {
+            
+            cadastroSocioFrame = new CadastroSocioView();
+    
+            DesktopMenu.add(cadastroSocioFrame);
+            cadastroSocioFrame.setVisible(true);
+            cadastroSocioFrame.setUI(null);
 
             isCadastrarSocios = true;
             isSocios = false;
@@ -305,7 +315,6 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             AutorizarSocioPressed.setSelected(false);
             RegistrarInOut.setSelected(false);
             
-            cadastroSocioFrame.setVisible(true);
             socioFrame.setVisible(false);
             chalesFrame.setVisible(false);
             cadastroChaleFrame.setVisible(false);
@@ -324,6 +333,17 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             chalesFrame.setVisible(false);
 
         } else {
+            
+            chalesFrame = new ChalesView();
+            
+            DesktopMenu.add(chalesFrame);
+            chalesFrame.setVisible(true);
+            chalesFrame.setUI(null);
+            
+            reservarFrame = new ReservarChale();
+            DesktopMenu.add(reservarFrame);
+            reservarFrame.setVisible(false);
+            reservarFrame.setUI(null);
 
             isChales = true;
             isSocios = false;
@@ -340,7 +360,6 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             AutorizarSocioPressed.setSelected(false);
             RegistrarInOut.setSelected(false);
             
-            chalesFrame.setVisible(true);
             cadastroSocioFrame.setVisible(false);
             socioFrame.setVisible(false);
             cadastroSocioFrame.setVisible(false);
@@ -359,6 +378,12 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             chalesFrame.setVisible(false);
 
         } else {
+            
+            cadastroChaleFrame = new CadastroChalesView();
+    
+            DesktopMenu.add(cadastroChaleFrame);
+            cadastroChaleFrame.setVisible(true);
+            cadastroChaleFrame.setUI(null);
 
             isCadastrarChales = true;
             isSocios = false;
@@ -374,8 +399,7 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             ChalesPressed.setSelected(false);
             AutorizarSocioPressed.setSelected(false);
             RegistrarInOut.setSelected(false);
-
-            cadastroChaleFrame.setVisible(true);
+            
             cadastroSocioFrame.setVisible(false);
             socioFrame.setVisible(false);
             chalesFrame.setVisible(false);
@@ -394,7 +418,13 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             autorizarFrame.setVisible(false);
 
         } else {
-
+            
+            autorizarFrame = new AutorizarSocioView();
+    
+            DesktopMenu.add(autorizarFrame);
+            autorizarFrame.setVisible(true);
+            autorizarFrame.setUI(null);
+        
             isAutorizarSocio = true;
             isCadastrarChales = false;
             isSocios = false;
@@ -402,7 +432,6 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             isChales = false;
             isDetalheSocio = false;
             isEntradaSaida = false;
-            
 
             AutorizarSocioPressed.setSelected(true);
             CadastrarChalesPressed.setSelected(false);
@@ -411,8 +440,7 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             ChalesPressed.setSelected(false);
             RegistrarInOut.setSelected(false);
             entradaSaidaFrame.setVisible(false);
-
-            autorizarFrame.setVisible(true);
+            
             cadastroChaleFrame.setVisible(false);
             cadastroSocioFrame.setVisible(false);
             socioFrame.setVisible(false);
@@ -431,10 +459,10 @@ public class FuncionarioInterface extends javax.swing.JFrame {
             entradaSaidaFrame.setVisible(false);
 
         } else {
-            
+
             entradaSaidaFrame = new EntradaSaidaView();
             DesktopMenu.add(entradaSaidaFrame);
-            entradaSaidaFrame.setVisible(false);
+            entradaSaidaFrame.setVisible(true);
             entradaSaidaFrame.setUI(null);
         
             isEntradaSaida = true;

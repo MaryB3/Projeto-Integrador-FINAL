@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Classes;
-
 /**
  *
  * @author MaryBeds
@@ -12,16 +11,31 @@ package Classes;
 public class Reserva  extends Chale{
     
     private int num_reserva;
-    private String dataReserva = "";
+    private String dataReserva;
+    private int matriculaSOcio;
+    private int numChale;
+    private String nomeSocio;
     
 
-    public Reserva(String dataReserva, int numSocio, int numChale){
+    public Reserva(String dataReserva, int numChale, int numSocio){
         
         
-        //this.descricao = descricao;
-        //this.status = status;
+        this.dataReserva = dataReserva;
+        this.numChale = numChale;
+        this.matriculaSOcio = numSocio;
+
     }
     
+    public Reserva(String dataReserva, int numChale, String nomeSocio){
+        
+        
+        this.dataReserva = dataReserva;
+        this.numChale = numChale;
+        this.nomeSocio = nomeSocio;
+
+    }
+        
+   
     public Reserva(){
         //this.descricao = "";
         //this.status = "";
@@ -42,5 +56,31 @@ public class Reserva  extends Chale{
     public void setDataReserva(String dataReserva) {
         this.dataReserva = dataReserva;
     }
+
+    public int getMatriculaSOcio() {
+        return matriculaSOcio;
+    }
+
+    public void setMatriculaSOcio(int matriculaSOcio) {
+        this.matriculaSOcio = matriculaSOcio;
+    }
+
+    public int getNumChale() {
+        return numChale;
+    }
+
+    public void setNumChale(int numChale) {
+        this.numChale = numChale;
+    }
+
+    public String getNomeSocio() {
+        return nomeSocio;
+    }
+
+    public void setNomeSocio(String nomeSocio) {
+        this.nomeSocio = nomeSocio;
+    }
+    
+    
     
 }

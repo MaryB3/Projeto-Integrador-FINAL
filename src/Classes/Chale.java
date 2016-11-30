@@ -24,14 +24,27 @@ public class Chale extends Socio{
         this.status = status;
     }
     
+    public Chale(int numChaleRecebido){
+        this.numero = numChaleRecebido;
+    }
+    
     public Chale(){
         this.descricao = "";
         this.status = "";
     }
 
+    public Chale(String descricao, String status, int numChale) {
+        this.descricao = descricao;
+        this.status = status;
+        this.numero = numChale;
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public Chale(String dataReserva, int socioSelecionado, int numChale) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
 
     public int getNumero() {
         return numero;

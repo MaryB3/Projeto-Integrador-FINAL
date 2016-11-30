@@ -18,8 +18,21 @@ public class Socio extends Pessoa {
     private String formaPagamento;  // criar combobox com: DEBITO AUTOMATICO , CARTAO/INTERNET
     private String quemIndicou;
     private String status;
+    private java.util.Date dataEntrada;
+    private java.util.Date dataSaida;
+    private String cpfRecebido;
 
    //METODOS:
+    
+    public Socio(){
+        
+    }
+    
+    public Socio(String cpf, String status){
+        this.cpfRecebido = cpf;
+        this.status = status;
+    }
+    
     public Date getDataDeAssociacao() throws Exception {
          if(dataDeAssociacao.equals(null) || dataDeAssociacao.equals("")) throw new Exception("Informar a Data de Associcão!");
         return dataDeAssociacao;
@@ -33,9 +46,8 @@ public class Socio extends Pessoa {
         this.dataDeAssociacao = dataDeAssociacao;
     }
 
-    public void setFormaPagamento(String formaPagamento) throws Exception {
-         if(formaPagamento.equals(null) || formaPagamento.equals("")) throw new Exception("Informar a Forma de Pagamento!");
-        this.formaPagamento = formaPagamento;
+    public void setFormaPagamento(String formaPagamento) {
+         this.formaPagamento = formaPagamento;
     }
 
     public String getQuemIndicou() {
@@ -52,6 +64,30 @@ public class Socio extends Pessoa {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(Date dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public Date getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(Date dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+
+    public String getCpfRecebido() {
+        return cpfRecebido;
+    }
+
+    public void setCpfRecebido(String cpfRecebido) {
+        this.cpfRecebido = cpfRecebido;
     }
     
     

@@ -14,7 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import Classes.RegistroEntradaSaida;
+import Classes.Socio;
 import com.senai.projetointegrador.persistencia.ReservaPersistencia;
+import com.senai.projetointegrador.persistencia.SocioPersistencia;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,6 +32,20 @@ public class EntradaSaidaView extends javax.swing.JInternalFrame {
      */
     public EntradaSaidaView() {
         initComponents();
+        
+        try {
+            DefaultComboBoxModel comboBox = (DefaultComboBoxModel) jComboBox1.getModel();
+            SocioPersistencia objetoPesistencia = new SocioPersistencia();
+            ArrayList lista = objetoPesistencia.listar();
+            for(int pos=0;pos<lista.size();pos++){
+                String[] saida= new String[1];//novo
+                Socio socio = (Socio)(lista.get(pos));//novo
+                saida[0] = socio.getNome();//novo
+                comboBox.addElement(saida[0]);
+            }
+        }catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
                  
     }
     

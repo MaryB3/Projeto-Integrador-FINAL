@@ -22,10 +22,6 @@ public class Pessoa {
     public String telefone;   
     public String email;
     public String endereco;
-    public String bairro;
-    public int cep;
-    public String cidade;  // combobox cidades já cadastradas no banco
-    public String uf;
     public String banco;
     public int agencia;
     public int conta;
@@ -61,22 +57,6 @@ public class Pessoa {
 
     public String getEndereco() {
         return endereco;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public int getCep() {
-        return cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public String getUf() {
-        return uf;
     }
 
     public String getBanco() {
@@ -117,22 +97,6 @@ public class Pessoa {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public void setCep(int cep) {
-        this.cep = cep;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
     }
 
     public void setBanco(String banco) {
